@@ -8,7 +8,7 @@ import {
   SET_THEME,
   TOP_NEWS_ERROR,
   SET_TOP_NEWS,
-  CLEAR_TOP_NEWS
+  CLEAR_TOP_NEWS,
 } from './types';
 
 let newsApiKey;
@@ -16,7 +16,8 @@ let newsApiKey;
 if (process.env.NODE_ENV !== 'production') {
   newsApiKey = process.env.REACT_APP_NEWS_API_KEY;
 } else {
-  newsApiKey = process.env.NEWS_API_KEY;
+  // newsApiKey = process.env.NEWS_API_KEY;
+  newsApiKey = process.env.REACT_APP_NEWS_API_KEY;
 }
 
 // Set Theme
@@ -36,12 +37,12 @@ export const setTheme = () => {
   }
   return {
     type: SET_THEME,
-    payload: localTheme
+    payload: localTheme,
   };
 };
 
 // Change theme
-export const changeTheme = theme => {
+export const changeTheme = (theme) => {
   localStorage.setItem('theme', theme);
   if (theme === 'dark') {
     document.body.style.backgroundColor = '#ccc';
@@ -50,38 +51,38 @@ export const changeTheme = theme => {
   }
   return {
     type: CHANGE_THEME,
-    payload: theme
+    payload: theme,
   };
 };
 
 // Set Source loading
 export const setSourceLoading = () => {
   return {
-    type: SET_SOURCE_LOADING
+    type: SET_SOURCE_LOADING,
   };
 };
 
 // Set News Loading
 export const setNewsLoading = () => {
   return {
-    type: SET_NEWS_LOADING
+    type: SET_NEWS_LOADING,
   };
 };
 
 // Get News Source
-export const getNewsSource = () => async dispatch => {
+export const getNewsSource = () => async (dispatch) => {
   dispatch(setSourceLoading());
   try {
     const newsSource = await axios.get(`sources?apiKey=${newsApiKey}`);
     if (newsSource) {
       dispatch({
         type: GET_NEWS_SOURCE,
-        payload: newsSource.data.sources
+        payload: newsSource.data.sources,
       });
     }
   } catch (error) {
     dispatch({
-      type: NEWS_SOURCE_ERROR
+      type: NEWS_SOURCE_ERROR,
     });
   }
 };
@@ -101,12 +102,12 @@ export const setTopNews = (url, page) => async (dispatch, getState) => {
     if (newsItems) {
       dispatch({
         type: SET_TOP_NEWS,
-        payload: newsItems.data
+        payload: newsItems.data,
       });
     }
   } catch (error) {
     dispatch({
-      type: TOP_NEWS_ERROR
+      type: TOP_NEWS_ERROR,
     });
   }
 };
@@ -114,6 +115,6 @@ export const setTopNews = (url, page) => async (dispatch, getState) => {
 //  Clear top news
 export const clearTopNews = () => {
   return {
-    type: CLEAR_TOP_NEWS
+    type: CLEAR_TOP_NEWS,
   };
 };
