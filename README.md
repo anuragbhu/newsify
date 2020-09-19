@@ -4,7 +4,7 @@ A web app (single page application) created with react.js, redux and react-boots
 
 ## Demo
 
-[Live Demo]()
+[Live Demo](https://newsify-anuragbhu.netlify.app/)
 
 ### Features
 
@@ -18,9 +18,15 @@ A web app (single page application) created with react.js, redux and react-boots
 
 ### Overview
 
-![react-news-1]()
-
-![react-news-2]()
+<!---  SCREENSHOOT   -->
+<div align="center">
+    <img src="./public/Screenshot_1.png" width="200"/><br>
+    <img src="./public/Screenshot_2.png" width="200"/><br>
+    <img src="./public/Screenshot_3.png" width="200"/><br>
+    <img src="./public/Screenshot_4.png" width="200"/><br>
+    <img src="./public/Screenshot_5.png" width="200"/><br>
+    <img src="./public/Screenshot_6.png" width="200"/>
+</div>
 
 ## Project setup
 
